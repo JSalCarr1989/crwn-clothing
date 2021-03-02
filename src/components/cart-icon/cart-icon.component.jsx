@@ -4,6 +4,7 @@ import './cart-icon.styles.scss'
 import { connect } from 'react-redux'
 import { toggleCartHidden } from '../../redux/cart/cart.actions'
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors'
+import { createStructuredSelector } from 'reselect'
 
 
 const CartIcon = ({ toggleCartHidden, itemCount }) => (
@@ -18,8 +19,8 @@ const mapDispatchToProps = dispatch => ({
     toggleCartHidden: () => dispatch(toggleCartHidden())
 })
 
-const mapStateToProps = (state) => ({
-    itemCount: selectCartItemsCount(state)
+const mapStateToProps = createStructuredSelector({
+    itemCount: selectCartItemsCount
 }) //esto es un redux selector , este codigo se esta ejecutando siempre que se pasan nuevas props , we dont want to 
 // re render components en cada render , aqui podemos usar memoization , instalando reselect
 
