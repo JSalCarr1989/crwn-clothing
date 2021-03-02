@@ -4,6 +4,7 @@
   flex-direction: column;
   height: 350px;
   align-items: center;
+  position:relative; // para agregar el boton le pusimos position relative al container
 
   .image {
     width: 100%;
@@ -11,6 +12,24 @@
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
+  }
+
+  .custom-button {   // y estos son los estilos del boton
+     width:80%;      // vamos a esconder el boton del usuario
+     opacity: 0.7;
+     position: absolute;
+     top:255px;
+     display:none;
+  }
+
+  &:hover {    // cual el usuario de hover mostramos el boton con estas propiedades
+    .image {
+      opacity: 0.8;
+    }
+    .custom-button {
+      opacity: 0.85;
+      display: flex;
+    }
   }
 
   .collection-footer {
